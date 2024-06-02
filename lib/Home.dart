@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late ScrollController _scrollController;
-  bool _showLogo = true;
+  bool _showLogo = false;
   bool light = true;
   bool SearchbarShow = false;
   bool expanded = true;
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _scrollListener() {
-    if (_scrollController.offset <= _scrollController.position.minScrollExtent) {
+    if (_scrollController.offset <= 180) {
       setState(() {
         _showLogo = true;
       });
@@ -56,6 +56,7 @@ class _HomePageState extends State<HomePage> {
       body: CustomScrollView(
         controller: _scrollController,
         slivers: <Widget>[
+          
           SliverAppBar(
             snap: true,
             pinned: true,
@@ -65,10 +66,10 @@ class _HomePageState extends State<HomePage> {
                 centerTitle: false,
                 titlePadding: EdgeInsets.all(0),
                 title:
-                    _showLogo
-                        ?
+                    // _showLogo
+                    //     ?
                      Container(
-                        height: 43,
+                        height: 70,
                         width: double.infinity,
                         padding: EdgeInsets.all(7),
                         decoration: BoxDecoration(
@@ -76,10 +77,13 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
+                            _showLogo
+                        ?
+                        Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                SizedBox(height: 10,),
                                 Text(
                                   "The weeknd",
                                   style: TextStyle(
@@ -89,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                 ),
                                 SizedBox(
-                                  height: 2,
+                                  height: 8,
                                 ),
                                 Text(
                                   "Community • +11K Members",
@@ -100,35 +104,14 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white),
                                 ),
                               ],
-                            ),
-                            IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.share,
-                                  color: Colors.white,
-                                  size: 15,
-                                ))
-                          ],
-                        ))
-                    :
-                    Flexible(
-                      // flex: 1,
-                      fit: FlexFit.loose,
-                        child: 
-                    Container(
-                      height: 70,
-                        width: screenWidth,
-                        padding: EdgeInsets.only(
-                            right: 7, left: 40, top: 7, bottom: 7),
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 195, 36, 34)),
-                        child: 
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                           
-                            Container(
+                            )
+                                :  Expanded(
+                                  child: 
+                                  SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: 
+                                     Container(
+                                      padding: EdgeInsets.only( left: 40,),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
@@ -164,14 +147,24 @@ class _HomePageState extends State<HomePage> {
                                         fontFamily: 'Proxima Nova',
                                         fontWeight: FontWeight.w400,
                                         color: Colors.white),
-                                  ),
+                                  )
+                                  ]  ),
                                 ],
-                              ),
-                                ],
-                            )
-                            
-                            ),
-                            IconButton(
+                               ) )
+                                ))
+              ,
+             
+                         _showLogo
+                        ?
+                      IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.share,
+                                  color: Colors.white,
+                                  size: 15,
+                                ))
+                                :
+                                 IconButton(
                                 onPressed: () {
                                     showModalBottomSheet<void>(
                 context: context,
@@ -242,14 +235,150 @@ class _HomePageState extends State<HomePage> {
                                   size: 20,
                                 ))
                           ],
-                        )
-                       
                         )),
+              //       :
+              //       Expanded(
+              //         // flex: 1,
+              //         // fit: FlexFit.loose,
+              //           child: 
+              //           SingleChildScrollView(
+              // scrollDirection: Axis.horizontal,
+              // child: 
+              //       Container(
+              //         height: 70,
+              //           // width: screenWidth,
+              //           padding: EdgeInsets.only(
+              //               right: 7, left: 40, top: 7, bottom: 7),
+              //           decoration: BoxDecoration(
+              //               color: Color.fromARGB(255, 195, 36, 34)),
+              //           child: 
+              //           Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //             // crossAxisAlignment: CrossAxisAlignment.center,
+              //             children: [
+                           
+              //               Container(
+              //                 child: Row(
+              //                   crossAxisAlignment: CrossAxisAlignment.stretch,
+              //                   children: [
+              //                   CircleAvatar(
+              //                     radius: 30,
+              //                     backgroundImage:
+              //                         AssetImage('assets/image.png'),
+              //                   ),
+              //                   SizedBox(
+              //                     width: 10,
+              //                   ),
+                              
+              //                 Column(
+              //                   mainAxisAlignment: MainAxisAlignment.start,
+              //                   crossAxisAlignment: CrossAxisAlignment.start,
+              //                   children: [
+              //                     SizedBox(height: 4,),
+              //                     Text(
+              //                       "The weeknd",
+              //                       style: TextStyle(
+              //                           fontSize: 18,
+              //                           fontFamily: 'Proxima Nova',
+              //                           fontWeight: FontWeight.w600,
+              //                           color: Colors.white),
+              //                     ),
+              //                     SizedBox(
+              //                       height: 2,
+              //                     ),
+              //                     Text(
+              //                       "Community • +11K Members",
+              //                       style: TextStyle(
+              //                           fontSize: 13,
+              //                           fontFamily: 'Proxima Nova',
+              //                           fontWeight: FontWeight.w400,
+              //                           color: Colors.white),
+              //                     ),
+              //                   ],
+              //                 ),
+              //                   ],
+              //               )
+                            
+              //               ),
+              //               IconButton(
+              //                   onPressed: () {
+              //                       showModalBottomSheet<void>(
+              //   context: context,
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.only(
+              //         topLeft: Radius.circular(20),
+              //         topRight: Radius.circular(20)),
+              //   ),
+              //   builder: (BuildContext context) {
+              //                       return Container(
+              //                         padding: EdgeInsets.all(20),
+              //                         height: 160,
+              //                         // decoration: BoxDecoration(
+              //                         //   borderRadius: BorderRadius.circular(20)
+              //                         // ),
+              //                         color: Color.fromARGB(255, 255, 255, 255),
+              //                         child: 
+              //                         Column(
+              //                           children: [
+              //                             Row(
+              //                               children: [
+              //                                 Icon(Icons.link),
+              //                                 SizedBox(width: 10,),
+              //                                 Text('Invite',style: TextStyle(fontWeight: FontWeight.bold),)
+              //                               ],
+              //                             ),
+              //                             SizedBox(height: 20,),
+              //                             Row(
+              //                                     children: [
+              //                                       Icon(Icons.person_add_alt_outlined),
+              //                                 SizedBox(
+              //                                         width: 10,
+              //                                       ),
+
+              //                                       Text('Add member',
+              //                                           style: TextStyle(
+              //                                               fontWeight:
+              //                                                   FontWeight
+              //                                                       .bold))
+              //                                     ],
+              //                                   ),
+              //                             SizedBox(
+              //                                     height: 20,
+              //                                   ),
+
+              //                                   Row(
+              //                                     children: [
+              //                                       Icon(Icons.group_add_outlined),
+              //                                 SizedBox(
+              //                                         width: 10,
+              //                                       ),
+
+              //                                       Text('Add group',
+              //                                           style: TextStyle(
+              //                                               fontWeight:
+              //                                                   FontWeight
+              //                                                       .bold))
+              //                                     ],
+              //                                   )
+              //                           ],
+              //                         )
+              //                       );
+              //                     });
+              //                   },
+              //                   icon: Icon(
+              //                     Icons.more_vert,
+              //                     color: Colors.white,
+              //                     size: 20,
+              //                   ))
+              //             ],
+              //           )
+                       
+              //        ) )),
                 background: Image.asset(
                   'assets/image.png',
                   fit: BoxFit.fill,
                 )),
-            expandedHeight: 300,
+            expandedHeight: 400,
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back_rounded,
