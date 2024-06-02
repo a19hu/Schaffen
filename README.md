@@ -1,16 +1,39 @@
 # schaffen
 
-A new Flutter project.
+A new Flutter project made for an internship assignment.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## App Download
+Download the [APK file](app-release.apk) for Android.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Screenshots
+<div align="center">
+  <img src="Screenshot/step1.jpeg" alt="Screenshot Step 1" height="400">
+  <img src="Screenshot/step2.jpeg" alt="Screenshot Step 2" height="400">
+  <img src="Screenshot/step3.jpeg" alt="Screenshot Step 3" height="400">
+ 
+</div>
+
+
+## Installation
+
+To install this project, follow these steps:
+1. Clone the repository.
+   ```sh
+   https://github.com/a19hu/Schaffen.git
+
+2. Navigate to the project directory.
+   ```sh
+   cd Schaffen
+
+3. Install the dependencies.
+   ```sh
+    flutter pub get
+
+4. Run app.
+   ```sh
+   flutter run
+
