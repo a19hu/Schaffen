@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +15,24 @@ class _HomePageState extends State<HomePage> {
   bool SearchbarShow = false;
   bool expanded = true;
   bool addandfoll = true;
+
+  List<bool> list = [
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -44,7 +60,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-            double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -56,7 +71,6 @@ class _HomePageState extends State<HomePage> {
       body: CustomScrollView(
         controller: _scrollController,
         slivers: <Widget>[
-          
           SliverAppBar(
             snap: true,
             pinned: true,
@@ -68,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                 title:
                     // _showLogo
                     //     ?
-                     Container(
+                    Container(
                         height: 70,
                         width: double.infinity,
                         padding: EdgeInsets.all(7),
@@ -78,302 +92,177 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             _showLogo
-                        ?
-                        Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(height: 10,),
-                                Text(
-                                  "The weeknd",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontFamily: 'Proxima Nova',
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white),
-                                ),
-                                SizedBox(
-                                  height: 8,
-                                ),
-                                Text(
-                                  "Community • +11K Members",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontFamily: 'Proxima Nova',
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.white),
-                                ),
-                              ],
-                            )
-                                :  Expanded(
-                                  child: 
-                                  SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: 
-                                     Container(
-                                      padding: EdgeInsets.only( left: 40,),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                CircleAvatar(
-                                  radius: 30,
-                                  backgroundImage:
-                                      AssetImage('assets/image.png'),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                              
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 4,),
-                                  Text(
-                                    "The weeknd",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontFamily: 'Proxima Nova',
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
-                                  ),
-                                  SizedBox(
-                                    height: 2,
-                                  ),
-                                  Text(
-                                    "Community • +11K Members",
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontFamily: 'Proxima Nova',
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.white),
+                                ? Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "The weeknd",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Proxima Nova',
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.white),
+                                      ),
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      Text(
+                                        "Community • +11K Members",
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            fontFamily: 'Proxima Nova',
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.white),
+                                      ),
+                                    ],
                                   )
-                                  ]  ),
-                                ],
-                               ) )
-                                ))
-              ,
-             
-                         _showLogo
-                        ?
-                      IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.share,
-                                  color: Colors.white,
-                                  size: 15,
-                                ))
-                                :
-                                 IconButton(
-                                onPressed: () {
-                                    showModalBottomSheet<void>(
-                context: context,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
-                ),
-                builder: (BuildContext context) {
-                                    return Container(
-                                      padding: EdgeInsets.all(20),
-                                      height: 160,
-                                      // decoration: BoxDecoration(
-                                      //   borderRadius: BorderRadius.circular(20)
-                                      // ),
-                                      color: Color.fromARGB(255, 255, 255, 255),
-                                      child: 
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Icon(Icons.link),
-                                              SizedBox(width: 10,),
-                                              Text('Invite',style: TextStyle(fontWeight: FontWeight.bold),)
-                                            ],
+                                : Expanded(
+                                    child: SingleChildScrollView(
+                                        scrollDirection: Axis.horizontal,
+                                        child: Container(
+                                            padding: EdgeInsets.only(
+                                              left: 40,
+                                            ),
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              children: [
+                                                CircleAvatar(
+                                                  radius: 30,
+                                                  backgroundImage: AssetImage(
+                                                      'assets/image.png'),
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      SizedBox(
+                                                        height: 4,
+                                                      ),
+                                                      Text(
+                                                        "The weeknd",
+                                                        style: TextStyle(
+                                                            fontSize: 18,
+                                                            fontFamily:
+                                                                'Proxima Nova',
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 2,
+                                                      ),
+                                                      Text(
+                                                        "Community • +11K Members",
+                                                        style: TextStyle(
+                                                            fontSize: 13,
+                                                            fontFamily:
+                                                                'Proxima Nova',
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                            color:
+                                                                Colors.white),
+                                                      )
+                                                    ]),
+                                              ],
+                                            )))),
+                            _showLogo
+                                ? IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.share,
+                                      color: Colors.white,
+                                      size: 15,
+                                    ))
+                                : IconButton(
+                                    onPressed: () {
+                                      showModalBottomSheet<void>(
+                                          context: context,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20)),
                                           ),
-                                          SizedBox(height: 20,),
-                                          Row(
+                                          builder: (BuildContext context) {
+                                            return Container(
+                                                padding: EdgeInsets.all(20),
+                                                height: 160,
+                                                color: Color.fromARGB(
+                                                    255, 255, 255, 255),
+                                                child: Column(
                                                   children: [
-                                                    Icon(Icons.person_add_alt_outlined),
-                                              SizedBox(
-                                                      width: 10,
+                                                    Row(
+                                                      children: [
+                                                        Icon(Icons.link),
+                                                        SizedBox(
+                                                          width: 10,
+                                                        ),
+                                                        Text(
+                                                          'Invite',
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        )
+                                                      ],
                                                     ),
-
-                                                    Text('Add member',
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold))
-                                                  ],
-                                                ),
-                                          SizedBox(
-                                                  height: 20,
-                                                ),
-
-                                                Row(
-                                                  children: [
-                                                    Icon(Icons.group_add_outlined),
-                                              SizedBox(
-                                                      width: 10,
+                                                    SizedBox(
+                                                      height: 20,
                                                     ),
-
-                                                    Text('Add group',
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold))
+                                                    Row(
+                                                      children: [
+                                                        Icon(Icons
+                                                            .person_add_alt_outlined),
+                                                        SizedBox(
+                                                          width: 10,
+                                                        ),
+                                                        Text('Add member',
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold))
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      height: 20,
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Icon(Icons
+                                                            .group_add_outlined),
+                                                        SizedBox(
+                                                          width: 10,
+                                                        ),
+                                                        Text('Add group',
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold))
+                                                      ],
+                                                    )
                                                   ],
-                                                )
-                                        ],
-                                      )
-                                    );
-                                  });
-                                },
-                                icon: Icon(
-                                  Icons.more_vert,
-                                  color: Colors.white,
-                                  size: 20,
-                                ))
+                                                ));
+                                          });
+                                    },
+                                    icon: Icon(
+                                      Icons.more_vert,
+                                      color: Colors.white,
+                                      size: 20,
+                                    ))
                           ],
                         )),
-              //       :
-              //       Expanded(
-              //         // flex: 1,
-              //         // fit: FlexFit.loose,
-              //           child: 
-              //           SingleChildScrollView(
-              // scrollDirection: Axis.horizontal,
-              // child: 
-              //       Container(
-              //         height: 70,
-              //           // width: screenWidth,
-              //           padding: EdgeInsets.only(
-              //               right: 7, left: 40, top: 7, bottom: 7),
-              //           decoration: BoxDecoration(
-              //               color: Color.fromARGB(255, 195, 36, 34)),
-              //           child: 
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             // crossAxisAlignment: CrossAxisAlignment.center,
-              //             children: [
-                           
-              //               Container(
-              //                 child: Row(
-              //                   crossAxisAlignment: CrossAxisAlignment.stretch,
-              //                   children: [
-              //                   CircleAvatar(
-              //                     radius: 30,
-              //                     backgroundImage:
-              //                         AssetImage('assets/image.png'),
-              //                   ),
-              //                   SizedBox(
-              //                     width: 10,
-              //                   ),
-                              
-              //                 Column(
-              //                   mainAxisAlignment: MainAxisAlignment.start,
-              //                   crossAxisAlignment: CrossAxisAlignment.start,
-              //                   children: [
-              //                     SizedBox(height: 4,),
-              //                     Text(
-              //                       "The weeknd",
-              //                       style: TextStyle(
-              //                           fontSize: 18,
-              //                           fontFamily: 'Proxima Nova',
-              //                           fontWeight: FontWeight.w600,
-              //                           color: Colors.white),
-              //                     ),
-              //                     SizedBox(
-              //                       height: 2,
-              //                     ),
-              //                     Text(
-              //                       "Community • +11K Members",
-              //                       style: TextStyle(
-              //                           fontSize: 13,
-              //                           fontFamily: 'Proxima Nova',
-              //                           fontWeight: FontWeight.w400,
-              //                           color: Colors.white),
-              //                     ),
-              //                   ],
-              //                 ),
-              //                   ],
-              //               )
-                            
-              //               ),
-              //               IconButton(
-              //                   onPressed: () {
-              //                       showModalBottomSheet<void>(
-              //   context: context,
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.only(
-              //         topLeft: Radius.circular(20),
-              //         topRight: Radius.circular(20)),
-              //   ),
-              //   builder: (BuildContext context) {
-              //                       return Container(
-              //                         padding: EdgeInsets.all(20),
-              //                         height: 160,
-              //                         // decoration: BoxDecoration(
-              //                         //   borderRadius: BorderRadius.circular(20)
-              //                         // ),
-              //                         color: Color.fromARGB(255, 255, 255, 255),
-              //                         child: 
-              //                         Column(
-              //                           children: [
-              //                             Row(
-              //                               children: [
-              //                                 Icon(Icons.link),
-              //                                 SizedBox(width: 10,),
-              //                                 Text('Invite',style: TextStyle(fontWeight: FontWeight.bold),)
-              //                               ],
-              //                             ),
-              //                             SizedBox(height: 20,),
-              //                             Row(
-              //                                     children: [
-              //                                       Icon(Icons.person_add_alt_outlined),
-              //                                 SizedBox(
-              //                                         width: 10,
-              //                                       ),
-
-              //                                       Text('Add member',
-              //                                           style: TextStyle(
-              //                                               fontWeight:
-              //                                                   FontWeight
-              //                                                       .bold))
-              //                                     ],
-              //                                   ),
-              //                             SizedBox(
-              //                                     height: 20,
-              //                                   ),
-
-              //                                   Row(
-              //                                     children: [
-              //                                       Icon(Icons.group_add_outlined),
-              //                                 SizedBox(
-              //                                         width: 10,
-              //                                       ),
-
-              //                                       Text('Add group',
-              //                                           style: TextStyle(
-              //                                               fontWeight:
-              //                                                   FontWeight
-              //                                                       .bold))
-              //                                     ],
-              //                                   )
-              //                           ],
-              //                         )
-              //                       );
-              //                     });
-              //                   },
-              //                   icon: Icon(
-              //                     Icons.more_vert,
-              //                     color: Colors.white,
-              //                     size: 20,
-              //                   ))
-              //             ],
-              //           )
-                       
-              //        ) )),
                 background: Image.asset(
                   'assets/image.png',
                   fit: BoxFit.fill,
@@ -773,6 +662,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   )),
+            // Container(
+            //     padding: EdgeInsets.only(left: 20, right: 20),
+            //     child: Column(children: [
+
             Container(
                 padding: EdgeInsets.only(left: 20, right: 20),
                 child: Column(
@@ -811,36 +704,24 @@ class _HomePageState extends State<HomePage> {
                           ),
                           onPressed: () {
                             setState(() {
-                              addandfoll = !addandfoll;
+                              list[0] = !list[0];
                             });
                           },
                           child: Container(
-                            alignment: Alignment.center,
-                            width: 100,
-                            padding: EdgeInsets.only(top: 8, bottom: 8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: addandfoll
-                                  ? Color.fromARGB(
-                                      255,
-                                      int.parse('EF', radix: 16),
-                                      int.parse('45', radix: 16),
-                                      int.parse('6F', radix: 16),
-                                    )
-                                  : Colors.grey.shade400,
-                            ),
-                            child: addandfoll
-                                ? Text(
-                                    'Add',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  )
-                                : Text(
-                                    'Following',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  ),
-                          ),
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[0]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[0] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
                         ),
                       ],
                     ),
@@ -878,36 +759,24 @@ class _HomePageState extends State<HomePage> {
                           ),
                           onPressed: () {
                             setState(() {
-                              addandfoll = !addandfoll;
+                              list[1] = !list[1];
                             });
                           },
                           child: Container(
-                            alignment: Alignment.center,
-                            width: 100,
-                            padding: EdgeInsets.only(top: 8, bottom: 8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: addandfoll
-                                  ? Color.fromARGB(
-                                      255,
-                                      int.parse('EF', radix: 16),
-                                      int.parse('45', radix: 16),
-                                      int.parse('6F', radix: 16),
-                                    )
-                                  : Colors.grey.shade400,
-                            ),
-                            child: addandfoll
-                                ? Text(
-                                    'Add',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  )
-                                : Text(
-                                    'Following',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  ),
-                          ),
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[1]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[1] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
                         ),
                       ],
                     ),
@@ -945,36 +814,24 @@ class _HomePageState extends State<HomePage> {
                           ),
                           onPressed: () {
                             setState(() {
-                              addandfoll = !addandfoll;
+                              list[2] = !list[2];
                             });
                           },
                           child: Container(
-                            alignment: Alignment.center,
-                            width: 100,
-                            padding: EdgeInsets.only(top: 8, bottom: 8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: addandfoll
-                                  ? Color.fromARGB(
-                                      255,
-                                      int.parse('EF', radix: 16),
-                                      int.parse('45', radix: 16),
-                                      int.parse('6F', radix: 16),
-                                    )
-                                  : Colors.grey.shade400,
-                            ),
-                            child: addandfoll
-                                ? Text(
-                                    'Add',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  )
-                                : Text(
-                                    'Following',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  ),
-                          ),
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[2]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[2] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
                         ),
                       ],
                     ),
@@ -1012,36 +869,24 @@ class _HomePageState extends State<HomePage> {
                           ),
                           onPressed: () {
                             setState(() {
-                              addandfoll = !addandfoll;
+                              list[3] = !list[3];
                             });
                           },
                           child: Container(
-                            alignment: Alignment.center,
-                            width: 100,
-                            padding: EdgeInsets.only(top: 8, bottom: 8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: addandfoll
-                                  ? Color.fromARGB(
-                                      255,
-                                      int.parse('EF', radix: 16),
-                                      int.parse('45', radix: 16),
-                                      int.parse('6F', radix: 16),
-                                    )
-                                  : Colors.grey.shade400,
-                            ),
-                            child: addandfoll
-                                ? Text(
-                                    'Add',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  )
-                                : Text(
-                                    'Following',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  ),
-                          ),
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[3]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[3] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
                         ),
                       ],
                     ),
@@ -1079,36 +924,24 @@ class _HomePageState extends State<HomePage> {
                           ),
                           onPressed: () {
                             setState(() {
-                              addandfoll = !addandfoll;
+                              list[4] = !list[4];
                             });
                           },
                           child: Container(
-                            alignment: Alignment.center,
-                            width: 100,
-                            padding: EdgeInsets.only(top: 8, bottom: 8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: addandfoll
-                                  ? Color.fromARGB(
-                                      255,
-                                      int.parse('EF', radix: 16),
-                                      int.parse('45', radix: 16),
-                                      int.parse('6F', radix: 16),
-                                    )
-                                  : Colors.grey.shade400,
-                            ),
-                            child: addandfoll
-                                ? Text(
-                                    'Add',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  )
-                                : Text(
-                                    'Following',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  ),
-                          ),
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[4]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[4] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
                         ),
                       ],
                     ),
@@ -1146,36 +979,24 @@ class _HomePageState extends State<HomePage> {
                           ),
                           onPressed: () {
                             setState(() {
-                              addandfoll = !addandfoll;
+                              list[5] = !list[5];
                             });
                           },
                           child: Container(
-                            alignment: Alignment.center,
-                            width: 100,
-                            padding: EdgeInsets.only(top: 8, bottom: 8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: addandfoll
-                                  ? Color.fromARGB(
-                                      255,
-                                      int.parse('EF', radix: 16),
-                                      int.parse('45', radix: 16),
-                                      int.parse('6F', radix: 16),
-                                    )
-                                  : Colors.grey.shade400,
-                            ),
-                            child: addandfoll
-                                ? Text(
-                                    'Add',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  )
-                                : Text(
-                                    'Following',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  ),
-                          ),
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[5]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[5] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
                         ),
                       ],
                     ),
@@ -1213,39 +1034,303 @@ class _HomePageState extends State<HomePage> {
                           ),
                           onPressed: () {
                             setState(() {
-                              addandfoll = !addandfoll;
+                              list[6] = !list[6];
                             });
                           },
                           child: Container(
-                            alignment: Alignment.center,
-                            width: 100,
-                            padding: EdgeInsets.only(top: 8, bottom: 8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: addandfoll
-                                  ? Color.fromARGB(
-                                      255,
-                                      int.parse('EF', radix: 16),
-                                      int.parse('45', radix: 16),
-                                      int.parse('6F', radix: 16),
-                                    )
-                                  : Colors.grey.shade400,
-                            ),
-                            child: addandfoll
-                                ? Text(
-                                    'Add',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  )
-                                : Text(
-                                    'Following',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 13.0),
-                                  ),
-                          ),
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[6]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[6] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
                         ),
                       ],
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            padding: EdgeInsets.only(top: 5, bottom: 5),
+                            child: Row(children: [
+                              CircleAvatar(
+                                radius: 26,
+                                backgroundImage: AssetImage('assets/logo.png'),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'Yashika',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w900),
+                                  ),
+                                  Text(
+                                    '29,India',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w400),
+                                  )
+                                ],
+                              ),
+                            ])),
+                        TextButton(
+                          style: ButtonStyle(
+                            alignment: Alignment.bottomCenter,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              list[7] = !list[7];
+                            });
+                          },
+                          child: Container(
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[7]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[7] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            padding: EdgeInsets.only(top: 5, bottom: 5),
+                            child: Row(children: [
+                              CircleAvatar(
+                                radius: 26,
+                                backgroundImage: AssetImage('assets/logo.png'),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'Yashika',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w900),
+                                  ),
+                                  Text(
+                                    '29,India',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w400),
+                                  )
+                                ],
+                              ),
+                            ])),
+                        TextButton(
+                          style: ButtonStyle(
+                            alignment: Alignment.bottomCenter,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              list[8] = !list[8];
+                            });
+                          },
+                          child: Container(
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[8]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[8] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            padding: EdgeInsets.only(top: 5, bottom: 5),
+                            child: Row(children: [
+                              CircleAvatar(
+                                radius: 26,
+                                backgroundImage: AssetImage('assets/logo.png'),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'Yashika',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w900),
+                                  ),
+                                  Text(
+                                    '29,India',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w400),
+                                  )
+                                ],
+                              ),
+                            ])),
+                        TextButton(
+                          style: ButtonStyle(
+                            alignment: Alignment.bottomCenter,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              list[9] = !list[9];
+                            });
+                          },
+                          child: Container(
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[9]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[9] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            padding: EdgeInsets.only(top: 5, bottom: 5),
+                            child: Row(children: [
+                              CircleAvatar(
+                                radius: 26,
+                                backgroundImage: AssetImage('assets/logo.png'),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'Yashika',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w900),
+                                  ),
+                                  Text(
+                                    '29,India',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w400),
+                                  )
+                                ],
+                              ),
+                            ])),
+                        TextButton(
+                          style: ButtonStyle(
+                            alignment: Alignment.bottomCenter,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              list[10] = !list[10];
+                            });
+                          },
+                          child: Container(
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[10]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[10] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            padding: EdgeInsets.only(top: 5, bottom: 5),
+                            child: Row(children: [
+                              CircleAvatar(
+                                radius: 26,
+                                backgroundImage: AssetImage('assets/logo.png'),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'Yashika',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w900),
+                                  ),
+                                  Text(
+                                    '29,India',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w400),
+                                  )
+                                ],
+                              ),
+                            ])),
+                        TextButton(
+                          style: ButtonStyle(
+                            alignment: Alignment.bottomCenter,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              list[11] = !list[11];
+                            });
+                          },
+                          child: Container(
+                              alignment: Alignment.center,
+                              width: 100,
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: list[11]
+                                    ? Color(0xFFEF456F)
+                                    : Colors.grey.shade400,
+                              ),
+                              child: Text(
+                                list[11] ? 'Add' : 'Following',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13.0),
+                              )),
+                        ),
+                      ],
+                    ),
+                    
                   ],
                 ))
           ]))
