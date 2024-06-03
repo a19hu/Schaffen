@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late ScrollController _scrollController;
-  bool _showLogo = false;
+  bool _showLogo = true;
   bool light = true;
   bool SearchbarShow = false;
   bool expanded = true;
@@ -60,6 +60,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+     double textScaleFactor = 1.2; //MediaQuery.textScaleFactorOf(context);
+    // print(sizescale);
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -83,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                     // _showLogo
                     //     ?
                     Container(
-                        height: 70,
+                        height: MediaQuery.of(context).size.height*0.08,
                         width: double.infinity,
                         padding: EdgeInsets.all(7),
                         decoration: BoxDecoration(
@@ -103,13 +105,13 @@ class _HomePageState extends State<HomePage> {
                                       Text(
                                         "The weeknd",
                                         style: TextStyle(
-                                            fontSize: 15,
+                                            fontSize: 13,
                                             fontFamily: 'Proxima Nova',
                                             fontWeight: FontWeight.w600,
                                             color: Colors.white),
                                       ),
                                       SizedBox(
-                                        height: 8,
+                                        height: 6,
                                       ),
                                       Text(
                                         "Community • +11K Members",
@@ -153,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                                                       Text(
                                                         "The weeknd",
                                                         style: TextStyle(
-                                                            fontSize: 18,
+                                                            fontSize: 12 * textScaleFactor,
                                                             fontFamily:
                                                                 'Proxima Nova',
                                                             fontWeight:
@@ -167,7 +169,8 @@ class _HomePageState extends State<HomePage> {
                                                       Text(
                                                         "Community • +11K Members",
                                                         style: TextStyle(
-                                                            fontSize: 13,
+                                                            fontSize: 9 *
+                                                                textScaleFactor,
                                                             fontFamily:
                                                                 'Proxima Nova',
                                                             fontWeight:
@@ -214,7 +217,10 @@ class _HomePageState extends State<HomePage> {
                                                           style: TextStyle(
                                                               fontWeight:
                                                                   FontWeight
-                                                                      .bold),
+                                                                      .bold,
+                                                                      fontSize: 9 *
+                                                                textScaleFactor,
+                                                          ),
                                                         )
                                                       ],
                                                     ),
@@ -232,7 +238,10 @@ class _HomePageState extends State<HomePage> {
                                                             style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .bold))
+                                                                        .bold,
+                                                              fontSize: 9 *
+                                                                  textScaleFactor,
+                                                            ))
                                                       ],
                                                     ),
                                                     SizedBox(
@@ -249,7 +258,10 @@ class _HomePageState extends State<HomePage> {
                                                             style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .bold))
+                                                                        .bold,
+                                                              fontSize: 9 *
+                                                                  textScaleFactor,
+                                                            ))
                                                       ],
                                                     )
                                                   ],
@@ -360,32 +372,47 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Container(
-                          padding: EdgeInsets.only(left: 10, right: 10),
-                          child: Row(
+                          padding: EdgeInsets.only(left: 8, right: 8),
+                          width: MediaQuery.of(context).size.width,
+                          height: 30,
+                          child: 
+                          ListView(
+                                // This next line does the trick.
+                                scrollDirection: Axis.horizontal,
+                                children: [
+
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               TextButton(
                                 onPressed: () {},
                                 child: Text(
                                   'Outerdoor',
-                                  style: TextStyle(color: Colors.red),
+                                  style: TextStyle(color: Colors.red,
+                                        fontSize:   11 * textScaleFactor,
+                                        ),
                                 ),
                                 style: ButtonStyle(
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(
                                       side: BorderSide(
                                         color: Colors.red,
+                                        
                                       ),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                   ),
                                 ),
                               ),
+                              SizedBox(width: 4,),
                               TextButton(
                                 onPressed: () {},
                                 child: Text(
                                   'Outerdoor',
-                                  style: TextStyle(color: Colors.red),
+                                  style: TextStyle(color: Colors.red,
+                                        fontSize: 11 * textScaleFactor,
+                                        ),
                                 ),
                                 style: ButtonStyle(
                                   shape: WidgetStateProperty.all(
@@ -398,11 +425,17 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
+                              SizedBox(
+                                      width: 4,
+                                    ),
+
                               TextButton(
                                 onPressed: () {},
                                 child: Text(
                                   'Outerdoor',
-                                  style: TextStyle(color: Colors.red),
+                                  style: TextStyle(color: Colors.red,
+                                        fontSize: 11 * textScaleFactor,
+                                        ),
                                 ),
                                 style: ButtonStyle(
                                   shape: WidgetStateProperty.all(
@@ -415,11 +448,17 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
+                              SizedBox(
+                                      width: 4,
+                                    ),
+
                               TextButton(
                                 onPressed: () {},
                                 child: Text(
                                   'Outerdoor',
-                                  style: TextStyle(color: Colors.red),
+                                  style: TextStyle(color: Colors.red,
+                                        fontSize: 11 * textScaleFactor,
+                                        ),
                                 ),
                                 style: ButtonStyle(
                                   shape: WidgetStateProperty.all(
@@ -432,11 +471,17 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
+                              SizedBox(
+                                      width: 4,
+                                    ),
+
                               TextButton(
                                 onPressed: () {},
                                 child: Text(
                                   '+1',
-                                  style: TextStyle(color: Colors.red),
+                                  style: TextStyle(color: Colors.red,
+                                        fontSize: 11 * textScaleFactor,
+                                        ),
                                 ),
                                 style: ButtonStyle(
                                   shape: WidgetStateProperty.all(
@@ -450,7 +495,10 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               )
                             ],
-                          )),
+                          )
+                                ]
+                          ) 
+                          ),
                       Container(
                         padding: EdgeInsets.only(top: 20, left: 20),
                         child: Column(
